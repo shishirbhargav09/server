@@ -1,4 +1,5 @@
 require('dotenv').config();
+var cors = require('cors');
 
 const express = require('express');
 const mongoose = require('mongoose');
@@ -19,6 +20,7 @@ database.once('connected', () => {
 })
 const app = express();
 app.use(express.json());
+app.use(cors());
 
 app.use('/api', routes)
 // app.get("/",(req,res) => { 
