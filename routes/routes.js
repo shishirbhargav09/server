@@ -5,10 +5,13 @@ const Model = require('../models/model');
 
 
 //Post Method
-router.post('/post', async (req, res) => {
+router.post('/addproduct', async (req, res) => {
     const data = new Model({
-        name: req.body.name,
-        age: req.body.age
+        title: req.body.title,
+        price: req.body.price,
+        description: req.body.description,
+        image: req.body.image,
+
     })
 
     try {
@@ -20,7 +23,7 @@ router.post('/post', async (req, res) => {
     }
 })
 //Get all Method
-router.get('/getAll', async (req, res) => {
+router.get('/products', async (req, res) => {
     try{
         const data = await Model.find();
         res.json(data)
@@ -64,7 +67,7 @@ router.delete('/delete/:id', async (req, res) => {
     try {
         const id = req.params.id;
         const data = await Model.findByIdAndDelete(id)
-        res.send(`Document with ${data.name} has been deleted..`)
+        res.send(`Document with ${data.title} has been deleted..`)
     }
     catch (error) {
         res.status(400).json({ message: error.message })

@@ -1,14 +1,22 @@
 const mongoose = require('mongoose');
 
 const dataSchema = new mongoose.Schema({
-    name: {
+    title: {
         // required: true,
         type: String
     },
-    age: {
+    price: {
         required: true,
         type: Number
-    }
+    },
+    description: {
+        // required: true,
+        type: String
+    },
+    image: {
+        // required: true,
+        type: String
+    },
 })
 
 module.exports = mongoose.model('Data', dataSchema)

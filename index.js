@@ -18,11 +18,13 @@ database.once('connected', () => {
     console.log('Database Connected');
 })
 const app = express();
-app.use('/api', routes)
-// app.use(bodyParser.json()); 
-// app.use(bodyParser.urlencoded({ extended: true }))
-
 app.use(express.json());
+
+app.use('/api', routes)
+// app.get("/",(req,res) => { 
+//     res.send("Server is On")
+//  })
+
 
 app.listen(3000, () => {
     console.log(`Server Started at ${3000}`)
