@@ -23,9 +23,9 @@ app.use(cors());
 app.use(express.json());
 
 app.use('/api', routes)
-// app.get("/",(req,res) => { 
-//     res.send("Server is On")
-//  })
+app.get("/",(req,res) => { 
+    res.send("Welcome To Shishir Bhargav's Ecommerce Rest Api")
+ })
 
 
 app.listen(3000, () => {
